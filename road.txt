@@ -1,0 +1,85 @@
+What theory do you actually need?
+Study only these concepts while doing the exercise.
+Concept	What you must understand
+HTTP request/response	How a client and server communicate
+REST API	How resources are exposed through HTTP conventions
+JSON	How structured data is exchanged
+HTTP methods	GET, POST, PATCH, DELETE
+Status codes	200, 400, 401, 403, 404, 429, 500
+Headers	Metadata and authentication information sent with requests
+API authentication	API keys or bearer tokens, depending on the service
+Error handling	Timeouts, network failures and unsuccessful responses
+
+
+API type->restAPI popular-> built using fastAPI etc in python ml/ express for webd etc
+
+restAPI is a structure of API built using fastAPI in python lang
+
+
+python -m uvicorn main:app --reload   (to run uvicorn server)
+
+curl.exe -X POST "http://127.0.0.1:8000/items?item=apple" (send request to add item fastAPI converts it to json)
+
+curl.exe -X GET "http://127.0.0.1:8000/items/0"  (send get request to get item 0 (works only after before statement od adding item))
+
+
+fastAPI documentation https://fastapi.tiangolo.com/tutorial/first-steps/
+
+from fastapi documentation notes--
+
+1. setup pip
+pip --version
+2. set up virtual environtment
+python -m venv env
+3. setup fastapi modules
+pip install "fastapi[standard]"
+4. run fastapi server 
+fastapi dev main.py
+
+Topic-path parameter - https://youtu.be/VlMcXIOsh2c?si=apxldWa3fV9Sg4QK
+
+from mockData import products  (imports products api)
+
+@app.get("/products")  (decorator route products)
+def get_products():
+    return products   
+
+http://127.0.0.1:8000/products/100
+100=dynamic value behind path products= path params
+http://127.0.0.1:8000/products  -> path
+
+http://127.0.0.1:8000/products?id=1
+?id=1 query parameter (what i want to search)
+
+request= holds all query params, path params
+do request.query_params to gett all key value pairs
+
+HTTP methods
+
+client(mobile app) -(req)-> server(have data)
+req=GET,POST
+get-to get someth from server
+post-to send seomthi
+put-update data
+
+
+type validation-> def func(name:str) ->datatype string
+but int,other datatypes can also be entered
+
+so let if we create if else
+if:
+   string then works
+else:
+   Error
+now good but for every name, age, height etc variable we would need
+extra if else for type validation
+
+hence pydantic solves that
+
+PYDANTIC (model)
+1build pydantic class with expected fields,data types
+2dictionary/json
+
+1pip install pydantic
+2from pydantic import BaseModel
+class Patient(BaseModel)
